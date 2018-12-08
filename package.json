@@ -1,0 +1,42 @@
+{
+  "name": "brainsjs",
+  "version": "1.0.0",
+  "description": "Simple state management for React",
+  "main": "dist/brains.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "webpack --mode=development --watch",
+    "build": "webpack --mode=production",
+    "transpile": "babel src -d dist --copy-files"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bitbytejoy/brainsjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bitbytejoy/brainsjs/issues"
+  },
+  "homepage": "https://github.com/bitbytejoy/brainsjs",
+  "keywords": [],
+  "author": "bitbytejoy",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.2.0",
+    "@babel/core": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "^8.0.4",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.7.0",
+    "jest": "^23.6.0",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-test-renderer": "^16.6.3",
+    "regenerator-runtime": "^0.13.1",
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {}
+}
