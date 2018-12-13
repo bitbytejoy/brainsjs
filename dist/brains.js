@@ -95,7 +95,7 @@ var brains = function brains(s, a, React) {
           key: "render",
           value: function render() {
             var props = stateMapping(state);
-            return React.createElement(Component, _extends({}, stateMapping(state), actionMapping(action)));
+            return React.createElement(Component, _extends({}, this.props, stateMapping(state), actionMapping(action)));
           }
         }]);
 

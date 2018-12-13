@@ -38,7 +38,13 @@ const brains = (s, a, React) => {
 
       render() {
         const props = stateMapping(state)
-        return <Component {...stateMapping(state)} {...actionMapping(action)}/>
+        return (
+          <Component
+            {...this.props}
+            {...stateMapping(state)}
+            {...actionMapping(action)}
+          />
+        )
       }
     }
   )

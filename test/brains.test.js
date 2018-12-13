@@ -72,3 +72,33 @@ test('action updates the state which updates multiple components', () => {
   expect(app.find('#counter').text()).toEqual('1')
   expect(app.find('#counter-worded').text()).toEqual(numberWord[1])
 })
+
+test('component props get propagated through the actor', () => {
+  const actor = brains(
+    { count: 0 },
+    { upCount: (state, payload) => ({ count: state.count + 1 }) },
+    React
+  )
+
+  const Counter = actor(
+    ({ plainCount, action }) => (
+      <div id="counter" onClick={action}>{plainCount}</div>
+    ),
+    state => ({ count: state.count }),
+    action => ({ action: () => action({ type: 'upCount', payload: null }) })
+  )
+
+  const App = () => (
+    <div>
+      <Counter plainCount={777}/>
+    </div>
+  )
+
+  const app = mount(<App/>)
+
+  expect(app.find('#counter').text()).toEqual('777')
+
+  app.find('#counter').simulate('click')
+
+  expect(app.find('#counter').text()).toEqual('777')
+})
