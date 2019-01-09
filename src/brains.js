@@ -21,15 +21,12 @@ const brains = (s, a, React) => {
     class extends React.Component {
       constructor() {
         super(...arguments)
+        this.state = state
         this.listenId = null
       }
 
       componentDidMount() {
-        this.listenId = listen(() => this.forceUpdate())
-        // If the child triggers an action during componentDidMount
-        // we need to make sure it gets the updates back
-        // Because the parent triggers componentDidMount after the child
-        this.forceUpdate()
+        this.listenId = listen(() => this.setState(state))
       }
 
       componentWillUnmount() {
